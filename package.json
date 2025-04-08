@@ -1,0 +1,32 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "auth:setup": "ts-node tests/auth/setupAuth.ts",
+    "test": "npm run auth:setup && npx playwright test && rm -rf storageState.json",
+    "test:headed": "npm run auth:setup && npx playwright test --headed && rm -rf storageState.json",
+    "test:debug": "npm run auth:setup && npx playwright test --debug && rm -rf storageState.json",
+    "test:chrome": "npm run auth:setup && npx playwright test --project=Chromium && rm -rf storageState.json",
+    "test:firefox": "npm run auth:setup && npx playwright test --project=Firefox && rm -rf storageState.json",
+    "test:webkit": "npm run auth:setup && npx playwright test --project=WebKit && rm -rf storageState.json",
+    "test:report": "playwright show-report",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^22.14.0",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
